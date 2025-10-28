@@ -3,9 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~plus</title>
+    <title>PLUS Properties | Find Your Dream Home</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
-    hello world
+    <!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <div class="logo-icon">+</div>
+            <span>PLUS Properties</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="./About.html">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="btn btn-primary">Become An Agent</button>
+        </div>
+        
+        <!-- Mobile Menu Button (Add this) -->
+        <div class="mobile-menu">
+            <button class="btn btn-outline">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80')"></div>
+            <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80')"></div>
+            <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+            <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80')"></div>
+        </div>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Find Your Dream Home Today</h1>
+                <p>Discover the perfect property from our extensive collection of premium listings</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Search by city, neighborhood, or ZIP">
+                    <button>Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="section-title">
+            <h2>Browse Properties</h2>
+            <p>Find your perfect property whether you're looking to buy or rent</p>
+        </div>
+        <div class="categories-grid">
+            <!-- For Sale Category -->
+            <div class="category-card" id="sale-category">
+                <div class="category-header">
+                    <h3>Properties For Sale</h3>
+                    <p>Find your dream home to own</p>
+                </div>
+                <div class="category-images">
+                    <div class="category-image active" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80')"></div>
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2092&q=80')"></div>
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1600585154340-9635aeba05a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')"></div>
+                </div>
+                <div class="category-footer">
+                    <p>Explore our extensive collection of homes available for purchase</p>
+                    <button class="btn btn-primary view-listings" data-category="sale">View Listings</button>
+                </div>
+            </div>
+            
+            <!-- For Rent Category -->
+            <div class="category-card" id="rent-category">
+                <div class="category-header">
+                    <h3>Properties For Rent</h3>
+                    <p>Find your perfect rental property</p>
+                </div>
+                <div class="category-images">
+                    <div class="category-image active" style="background-image: url('https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80')"></div>
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                </div>
+                <div class="category-footer">
+                    <p>Browse our selection of rental properties in prime locations</p>
+                    <button class="btn btn-primary view-listings" data-category="rent">View Listings</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Listings -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Featured Properties</h2>
+            <p>Explore our handpicked selection of premium properties</p>
+        </div>
+        <div class="filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">For Sale</button>
+            <button class="filter-btn">For Rent</button>
+            <button class="filter-btn">Luxury</button>
+        </div>
+        <div class="listings">
+            <!-- Listing 1 -->
+            <div class="listing-card">
+                <div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
+                <div class="listing-details">
+                    <div class="listing-price">$750,000</div>
+                    <div class="listing-address">123 Park Avenue, New York</div>
+                    <div class="listing-features">
+                        <div class="feature">
+                            <i class="fas fa-bed"></i>
+                            <span>4 Beds</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bath"></i>
+                            <span>3 Baths</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span>2,500 sqft</span>
+                        </div>
+                    </div>
+                    <span class="listing-type">For Sale</span>
+                </div>
+            </div>
+            
+            <!-- Listing 2 -->
+            <div class="listing-card">
+                <div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80')"></div>
+                <div class="listing-details">
+                    <div class="listing-price">$3,200/mo</div>
+                    <div class="listing-address">456 Ocean Drive, Miami</div>
+                    <div class="listing-features">
+                        <div class="feature">
+                            <i class="fas fa-bed"></i>
+                            <span>3 Beds</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bath"></i>
+                            <span>2 Baths</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span>1,800 sqft</span>
+                        </div>
+                    </div>
+                    <span class="listing-type">For Rent</span>
+                </div>
+            </div>
+            
+            <!-- Listing 3 -->
+            <div class="listing-card">
+                <div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2092&q=80')"></div>
+                <div class="listing-details">
+                    <div class="listing-price">$1,250,000</div>
+                    <div class="listing-address">789 Hillside Road, Los Angeles</div>
+                    <div class="listing-features">
+                        <div class="feature">
+                            <i class="fas fa-bed"></i>
+                            <span>5 Beds</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bath"></i>
+                            <span>4 Baths</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span>3,400 sqft</span>
+                        </div>
+                    </div>
+                    <span class="listing-type">For Sale</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Comprehensive real estate solutions tailored to your needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Property Sales</h3>
+                <p>Find your dream home from our extensive collection of premium properties for sale.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Property Rental</h3>
+                <p>Discover rental properties that match your lifestyle and budget requirements.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Property Valuation</h3>
+                <p>Get accurate market valuations for your property with our expert assessment.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Consultation</h3>
+                <p>Professional advice to help you make informed real estate decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section">
+        <div class="about">
+            <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80')"></div>
+            <div class="about-content">
+                <h2>Why Choose PLUS Properties?</h2>
+                <p>With over 15 years of experience in the real estate industry, we have helped thousands of clients find their perfect homes and make smart property investments.</p>
+                <p>Our team of dedicated professionals is committed to providing personalized service and expert guidance throughout your real estate journey.</p>
+                <button class="btn btn-primary">Learn More About Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+            <p>Hear from our satisfied customers about their experience</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "PLUS Properties helped us find our dream home in just three weeks! Their team was professional, knowledgeable, and made the entire process smooth."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg')"></div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Homeowner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "As a first-time home buyer, I was nervous about the process. The team at PLUS Properties guided me through every step and found me the perfect condo."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"></div>
+                    <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <p>First-time Buyer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "I've worked with several real estate agencies, but PLUS Properties stands out. Their market knowledge and negotiation skills got me an amazing deal on my new office space."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg')"></div>
+                    <div class="author-info">
+                        <h4>Jennifer Martinez</h4>
+                        <p>Business Owner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>PLUS Properties</h3>
+                <p>Your trusted partner in real estate for over 15 years. We're committed to helping you find the perfect property.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">Agents</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Properties</h3>
+                <ul class="footer-links">
+                    <li><a href="#">For Sale</a></li>
+                    <li><a href="#">For Rent</a></li>
+                    <li><a href="#">Commercial</a></li>
+                    <li><a href="#">Luxury Homes</a></li>
+                    <li><a href="#">New Developments</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Real Estate Ave, New York</li>
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@plusproperties.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 PLUS Properties. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP Animation for Hero Section
+        gsap.from('.hero-content h1', {duration: 1, y: 50, opacity: 0, delay: 0.5});
+        gsap.from('.hero-content p', {duration: 1, y: 30, opacity: 0, delay: 0.8});
+        gsap.from('.search-box', {duration: 1, y: 30, opacity: 0, delay: 1.1});
+
+        // Filter buttons functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Listing card hover effect enhancement
+        document.querySelectorAll('.listing-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                gsap.to(this, {duration: 0.3, y: -10, ease: "power2.out"});
+            });
+            card.addEventListener('mouseleave', function() {
+                gsap.to(this, {duration: 0.3, y: 0, ease: "power2.out"});
+            });
+        });
+
+        // Category card hover effect
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                gsap.to(this, {duration: 0.3, y: -10, ease: "power2.out"});
+            });
+            card.addEventListener('mouseleave', function() {
+                gsap.to(this, {duration: 0.3, y: 0, ease: "power2.out"});
+            });
+        });
+
+        // Image rotation for category cards using GSAP
+        function rotateCategoryImages(categoryId) {
+            const category = document.getElementById(categoryId);
+            const images = category.querySelectorAll('.category-image');
+            let currentIndex = 0;
+            
+            // Set initial state
+            gsap.set(images, {opacity: 0});
+            gsap.set(images[0], {opacity: 1});
+            
+            // Rotate images every 3 seconds
+            setInterval(() => {
+                const nextIndex = (currentIndex + 1) % images.length;
+                
+                // Fade out current image
+                gsap.to(images[currentIndex], {
+                    duration: 0.5,
+                    opacity: 0,
+                    ease: "power2.inOut"
+                });
+                
+                // Fade in next image
+                gsap.to(images[nextIndex], {
+                    duration: 0.5,
+                    opacity: 1,
+                    ease: "power2.inOut",
+                    delay: 0.2
+                });
+                
+                currentIndex = nextIndex;
+            }, 3000);
+        }
+
+        // Initialize image rotation for both categories
+        rotateCategoryImages('sale-category');
+        rotateCategoryImages('rent-category');
+
+        // View Listings button functionality
+        document.querySelectorAll('.view-listings').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Animate button click
+                gsap.to(this, {
+                    duration: 0.1,
+                    scale: 0.95,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: "power2.inOut"
+                });
+                
+                // Scroll to listings section
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: {
+                        y: ".listings",
+                        offsetY: 70
+                    },
+                    ease: "power2.inOut"
+                });
+                
+                // Set the appropriate filter
+                setTimeout(() => {
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                        if (btn.textContent.toLowerCase().includes(category)) {
+                            btn.classList.add('active');
+                        }
+                    });
+                }, 1000);
+            });
+        });
+
+
+        // Change navbar background on scroll - FORCE TRANSPARENT INITIALLY
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    const scrollPosition = window.scrollY;
+
+    // Force remove any background classes initially
+    if (scrollPosition === 0) {
+        navbar.style.background = 'transparent';
+        navbar.style.backgroundColor = 'transparent';
+        navbar.style.backdropFilter = 'none';
+    }
+
+    if (scrollPosition > 50) {
+        navbar.classList.add('navbar-scroll');
+    } else {
+        navbar.classList.remove('navbar-scroll');
+        // Force transparent background when at top
+        navbar.style.background = 'transparent';
+        navbar.style.backgroundColor = 'transparent';
+        navbar.style.backdropFilter = 'none';
+    }
+});
+
+// Force transparent on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    navbar.style.background = 'transparent';
+    navbar.style.backgroundColor = 'transparent';
+    navbar.style.backdropFilter = 'none';
+    
+    // Add fade-in animation
+    gsap.from(navbar, {
+        duration: 1,
+        y: -100,
+        opacity: 0,
+        ease: "power3.out"
+    });
+});
+    </script>
 </body>
 </html>
