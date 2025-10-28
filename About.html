@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | PLUS Properties</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         :root {
             --primary: #2c3e50;
@@ -61,7 +63,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -194,7 +196,7 @@
 
         /* ===== ABOUT HERO ===== */
         .about-hero {
-            height: 60vh;
+            height: 100vh;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -206,10 +208,26 @@
             padding-top: 80px;
         }
 
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+        }
+
         .about-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 2rem;
         }
 
@@ -223,6 +241,60 @@
         .about-hero p {
             font-size: 1.3rem;
             opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+        }
+
+        .floating-element.review {
+            top: 20%;
+            left: 10%;
+        }
+
+        .floating-element.award {
+            top: 60%;
+            right: 10%;
+        }
+
+        .floating-element.contract {
+            bottom: 20%;
+            left: 20%;
+        }
+
+        .floating-element h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .floating-element p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+
+        .floating-element .stars {
+            color: gold;
+            margin-bottom: 0.5rem;
         }
 
         /* ===== ABOUT CONTENT ===== */
@@ -674,6 +746,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .floating-element {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -710,7 +786,7 @@
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="about.html" class="active">About</a>
-                <a href="#">Contact</a>
+                <a href="contact.html">Contact</a>
             </div>
             <div class="nav-buttons">
                 <button class="btn btn-primary">Become An Agent</button>
@@ -725,9 +801,38 @@
 
     <!-- About Hero Section -->
     <section class="about-hero">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80" alt="PLUS Properties Office">
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-element review">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>Client Testimonial</h4>
+                <p>"PLUS Properties helped us find our dream home in record time!" - Sarah J.</p>
+            </div>
+            <div class="floating-element award">
+                <i class="fas fa-trophy" style="font-size: 2rem; margin-bottom: 0.5rem; color: gold;"></i>
+                <h4>Industry Recognition</h4>
+                <p>Best Real Estate Agency 2023</p>
+            </div>
+            <div class="floating-element contract">
+                <i class="fas fa-file-contract" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                <h4>15+ Years Experience</h4>
+                <p>Trusted by thousands of clients</p>
+            </div>
+        </div>
+        
         <div class="about-hero-content">
             <h1>About PLUS Properties</h1>
             <p>Your trusted partner in real estate for over 15 years</p>
+            <button class="btn btn-primary">Our Success Stories</button>
         </div>
     </section>
 
@@ -742,7 +847,7 @@
                     <p>Today, we continue to innovate and adapt to the changing real estate landscape while staying true to our core values of trust, transparency, and client satisfaction.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80" alt="PLUS Properties Office">
+                    <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80" alt="PLUS Properties Team">
                 </div>
             </div>
 
@@ -779,7 +884,7 @@
 
             <div class="about-content reverse">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80" alt="Our Mission">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80" alt="Our Mission">
                 </div>
                 <div class="about-text">
                     <h3>Our Mission & Vision</h3>
@@ -870,7 +975,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Sarah Williams">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80" alt="Sarah Williams">
                     </div>
                     <div class="team-content">
                         <h3 class="team-name">Sarah Williams</h3>
@@ -969,6 +1074,9 @@
     </footer>
 
     <script>
+        // Initialize GSAP and ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -979,27 +1087,91 @@
             }
         });
 
-        // Simple animation for elements when they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Hero section animations
+        gsap.timeline()
+            .from('.about-hero h1', { 
+                duration: 1, 
+                y: 50, 
+                opacity: 0, 
+                ease: "power3.out" 
+            })
+            .from('.about-hero p', { 
+                duration: 1, 
+                y: 30, 
+                opacity: 0, 
+                ease: "power3.out" 
+            }, "-=0.5")
+            .from('.about-hero .btn', { 
+                duration: 1, 
+                y: 30, 
+                opacity: 0, 
+                ease: "power3.out" 
+            }, "-=0.5");
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        // Floating elements animation
+        gsap.to('.floating-element.review', {
+            duration: 2,
+            y: -20,
+            rotation: -5,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        gsap.to('.floating-element.award', {
+            duration: 2,
+            y: 15,
+            rotation: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        gsap.to('.floating-element.contract', {
+            duration: 2,
+            y: -10,
+            rotation: -2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // Section animations with ScrollTrigger
+        gsap.utils.toArray('.about-content, .stat-card, .value-card, .team-card').forEach((element, index) => {
+            gsap.from(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: index * 0.1,
+                ease: "power3.out"
+            });
+        });
+
+        // Stats counter animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            const target = parseInt(stat.textContent);
+            const suffix = stat.textContent.replace(/[0-9]/g, '');
+            
+            gsap.to({ value: 0 }, {
+                scrollTrigger: {
+                    trigger: stat,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                },
+                value: target,
+                duration: 0.5,
+                onUpdate: function() {
+                    stat.textContent = Math.floor(this.targets()[0].value) + suffix;
                 }
             });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.stat-card, .value-card, .team-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
         });
     </script>
 </body>
