@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 600px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        
+        .form-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .login-form {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .register-form {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+            transform: translateX(100%);
+            transition: all 0.6s ease-in-out;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1e3c72;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .input-box {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            background: #f8fbff;
+            border-radius: 10px;
+            border: 2px solid #e1ecff;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: #4d7cfe;
+            box-shadow: 0 0 10px rgba(77, 124, 254, 0.2);
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #4d7cfe;
+        }
+
+        .forgot-link {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 14px;
+            margin: -10px 0 20px;
+        }
+
+        .forgot-link a {
+            color: #4d7cfe;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot-link a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(135deg, #4d7cfe, #1e3c72);
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(77, 124, 254, 0.4);
+        }
+
+        p {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f8fbff;
+            color: #4d7cfe;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #4d7cfe;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        
+        .toggle-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #4d7cfe, #1e3c72);
+            color: #fff;
+            overflow: hidden;
+            transition: all 0.6s ease-in-out;
+            z-index: 10;
+        }
+
+        .toggle-panel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 40px;
+            text-align: center;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .toggle-panel h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .toggle-panel p {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .toggle-panel .btn {
+            background: transparent;
+            border: 2px solid #fff;
+            width: 160px;
+        }
+
+        .toggle-panel .btn:hover {
+            background: #fff;
+            color: #4d7cfe;
+        }
+
+        .toggle-right {
+            right: 0;
+            transform: translateX(0);
+        }
+
+        .toggle-left {
+            left: 0;
+            transform: translateX(-100%);
+        }
+
+        
+        .container.active .toggle-container {
+            left: 0;
+        }
+
+        .container.active .login-form {
+            transform: translateX(-100%);
+        }
+
+        .container.active .register-form {
+            transform: translateX(0);
+        }
+
+        .container.active .toggle-left {
+            transform: translateX(0);
+        }
+
+        .container.active .toggle-right {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container">
+            <!-- Login Form -->
+            <div class="login-form">
+                <form action="#">
+                    <h1>Login</h1>
+                    <div class="input-box">
+                        <input type="text" placeholder="Username" required>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Password" required>
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </div>
+                    <div class="forgot-link">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <p>or login with social platforms</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="register-form">
+                <form action="#">
+                    <h1>Registration</h1>
+                    <div class="input-box">
+                        <input type="text" placeholder="Username" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" placeholder="Email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Password" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Confirm Password" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                    <p>or register with social platforms</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toggle Container -->
+        <div class="toggle-container">
+            <!-- Toggle Panel Right -->
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Friend!</h1>
+                <p>Don't have an account yet?</p>
+                <button class="btn" id="register-toggle">Register</button>
+            </div>
+
+            <!-- Toggle Panel Left -->
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button class="btn" id="login-toggle">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const registerToggle = document.getElementById('register-toggle');
+        const loginToggle = document.getElementById('login-toggle');
+
+        registerToggle.addEventListener('click', () => {
+            container.classList.add('active');
+        });
+
+        loginToggle.addEventListener('click', () => {
+            container.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
